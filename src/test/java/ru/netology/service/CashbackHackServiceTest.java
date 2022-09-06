@@ -3,6 +3,7 @@ package ru.netology.service;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class CashbackHackServiceTest {
 
@@ -36,5 +37,34 @@ public class CashbackHackServiceTest {
         int actual = service.remain(1000);
 
         Assert.assertEquals(expected, actual);
+    }
+    @Test
+
+    public void shouldCashbackIfAmountLessBoundary2() {
+
+        int expected = 400;
+        int actual = service.remain(600);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void shouldCashbackIfAmountMoreBoundary2() {
+
+        int expected = 200;
+        int actual = service.remain(2800);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void shouldCashbackIfAmountEqualsBoundary2() {
+
+        int expected = 0;
+        int actual = service.remain(1000);
+
+        Assertions.assertEquals(expected, actual);
     }
 }
